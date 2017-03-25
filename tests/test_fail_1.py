@@ -4,8 +4,8 @@
 import unittest
 
 
-class MyTest3(unittest.TestCase):
-    def test_fail_3(self):
+class TestFail1(unittest.TestCase):
+    def test_fail_1(self):
         return self.assertTrue(False)
 
 

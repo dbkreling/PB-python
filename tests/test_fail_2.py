@@ -5,9 +5,9 @@ import unittest
 import time
 
 
-class MyTest4(unittest.TestCase):
-    def test_fail_sleep(self):
-        time.sleep(1)
+class TestFail2(unittest.TestCase):
+    def test_fail_2(self):
+        time.sleep(2)
         return self.assertTrue(False)
 
 

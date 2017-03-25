@@ -4,8 +4,8 @@
 import unittest
 
 
-class MyTest0(unittest.TestCase):
-    def test_pass_1(self):
+class TestPass0(unittest.TestCase):
+    def test_pass_0(self):
         return 0
 
 

@@ -4,11 +4,11 @@
 import unittest
 import time
 
-class PassingTests(unittest.TestCase):
-    def test_pass_1(self):
+class TestAllPassing(unittest.TestCase):
+    def test_pass_clear(self):
         return 0
 
-    def test_pass_2(self):
+    def test_pass_assertTr(self):
         return self.assertTrue(True)
 
     def test_pass_sleep(self):

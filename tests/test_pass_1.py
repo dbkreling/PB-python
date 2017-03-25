@@ -4,8 +4,8 @@
 import unittest
 
 
-class MyTest2(unittest.TestCase):
-    def test_pass_2(self):
+class TestPass1(unittest.TestCase):
+    def test_pass_1(self):
         return self.assertTrue(True)
 
 

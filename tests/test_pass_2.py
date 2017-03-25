@@ -5,8 +5,8 @@ import unittest
 import time
 
 
-class MyTest5(unittest.TestCase):
-    def test_pass_sleep(self):
+class TestPass2(unittest.TestCase):
+    def test_pass_2(self):
         time.sleep(3)
         return 0
 
