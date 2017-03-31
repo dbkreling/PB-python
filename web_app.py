@@ -29,10 +29,12 @@ def show_results():
     """ Display results of the tests"""
     cursor = db.engine.execute('SELECT requester, path_to_test, test_cases, \
                         time_stamp, failures, was_successful FROM tests')
-    items = [dict(requester=row[0], path_to_test=row[1], test_cases=row[2],
-                  time_stamp=row[3], failures=[4], was_successful=row[5])
+    results = [dict(requester=row[0], path_to_test=row[1], test_cases=row[2],
+                  time_stamp=row[3], failures=row[4], was_successful=row[5])
              for row in cursor.fetchall()]
-    return jsonify(items)
+    # Sort the dictionary by time_stamp, more recent on the top
+    sorted_results = sorted(results, key=lambda x: x["time_stamp"], reverse=True)
+    return jsonify(sorted_results)
 
 @app.route("/")
 def home():
