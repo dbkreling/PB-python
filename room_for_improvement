@@ -1,0 +1,21 @@
+This file is part of the documentation for the Python web_app application and
+it will document some limitations as well as room for improvements. This was supposed
+to be a complete web application that triggers and monitors python tests in the background.
+
+1) The application lacks a front end. This is the main flaw.
+
+2) The main application lacks tests. Should this be a production
+product, tests should already have been implemented at this point.
+
+3) In terms of code, the MVC model should have been used. This would probably be
+the next step in the development process.
+
+4) A table with the data of the tests needs to be implemented. Since the assignment
+requires a front end interface, table in HTML was not created.
+
+5) on web_app.py, a function to create and run the database straight from the
+   application sould be implemented. Also, the database is implemented on memory.
+   In a production environment, we should consider implement a real database on the server.
+   Also, operations on the database such as delete and update were not implemented.
+
+6) Some form to filter out (or sort) by user (requrester) and by successful/failed runs.
