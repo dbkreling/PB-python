@@ -1,5 +1,5 @@
 <form action="/test/submit" method="POST">
-    <label>Requester</label>
+    <label>Requester (mandatory)</label>
         <input type="text" name="requester">
     <br>
     <label>Select Test to Run </label>
@@ -10,7 +10,7 @@
         {% endfor %}
     </select>
     <br>
-        <label>Or insert path to your test</label>
+        <label>Or insert path to your test (relative to PB_exercise)</label>
         <input type="text" name="path_to_test">
     <br>
     <input type="submit" value="Submit">
