@@ -35,6 +35,7 @@ class Tests(db.Model):
 def home():
     return render_template("home.html")
 
+
 @app.route("/test/list-all", methods=["GET"])
 def show_results():
     """ Display results of the tests in a sorted, json format """
@@ -51,7 +52,7 @@ def show_results():
 
 
 @app.route("/test/submit", methods=["GET", "POST"])
-def run_tests():
+def runTests():
     """ Manage the execution of the tests """
     # load the html form with the test list
     if request.method == "GET":
@@ -77,21 +78,22 @@ def run_tests():
         else:
             path_to_test = basedir + "/tests/" + test_name
 
-        test_module = import_module_from_file(test_name)
-        test = trigger_unittest(requester, path_to_test, test_module)
+        test_module = importModuleFromFile(test_name)
+        test = triggerUnittest(requester, path_to_test, test_module)
 
-        save_to_db(test)
+        saveToDb(test)
 
         return redirect("/test/list-all")
 
 
-def import_module_from_file(test_name):
+def importModuleFromFile(test_name):
     """ Handle test_name to be imported in the correct format """
     test_name = "tests." + test_name
     test_module = importlib.import_module(test_name)
     return test_module
 
-def trigger_unittest(requester, path_to_test, test_module):
+
+def triggerUnittest(requester, path_to_test, test_module):
     """ Load and run test selected on the web UI """
     # invoke unittest magic to run tests and collect output info
     test_loader = test_module.unittest.TestLoader()
@@ -113,11 +115,11 @@ def trigger_unittest(requester, path_to_test, test_module):
 
 
 @app.route("/test/error/<message>", methods=["GET"])
-def error_page(message):
+def errorPage(message):
     return render_template("error_page.html", message=message)
 
 
-def save_to_db(test):
+def saveToDb(test):
     """ Save test data to database table"""
     db.session.add(test)
     db.session.commit()
