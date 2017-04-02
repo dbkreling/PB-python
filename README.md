@@ -1,10 +1,41 @@
 # PB-python - a place for running tests in Python
 
 PB-python is a web application created with the purpose to serve as a central place to run python-based tests locally.
+It is currently running as a back end application to serve a front end application, not implemented on this version.
 
 ## Getting Started
 
 Clone PB-python and once you are all set, create an in-memory DataBase and then run web_app.py from your web browser.
+
+The result of each run is returned as a json output to be consumed by a front end API, when available.
+The display will show a list of dictionaries with information about each run recorded in the database:
+
+```
+[
+  {
+    "failures": "Traceback (most recent call last):\n  File \"<basedir>/PB_exercise/tests/test_fail_2.py\", line 11, in test_fail_2\n    return self.assertTrue(False)\nAssertionError: False is not true\n",
+    "path_to_test": "<basedir>/PB_exercise/tests/test_fail_2",
+    "requester": "<username>",
+    "test_cases": 1,
+    "time_stamp": "2017-04-02 09:31:35.761720",
+    "was_successful": 0
+  },
+  {
+      <similar output here for another run.>
+  }
+  ...
+]
+```
+
+The fields are:
+```
+"failures": the output of unittest to bash. It was redirectioned as a raw string to the html so that break lines are not resolved.
+"path_to_test": The path on the localhost to the file.
+"requester": (Mandatory) The name of the person requesting the run.
+"time_stamp": The local time the run was performed.
+"was_successful": if the test ran successfully or not. (False == 0, True == 1)
+```
+
 
 ### Prerequisites
 

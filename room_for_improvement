@@ -19,3 +19,5 @@ requires a front end interface, table in HTML was not created.
    Also, operations on the database such as delete and update were not implemented.
 
 6) Some form to filter out (or sort) by user (requrester) and by successful/failed runs.
+
+7) Insert a DateTime delta to display the run time of each test run.
